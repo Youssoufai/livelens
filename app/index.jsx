@@ -3,7 +3,9 @@ import { View, Text, Button, StyleSheet, TouchableOpacity, Image } from 'react-n
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import GestureRecognizer from 'react-native-swipe-gestures';
-import WelcomeScreen from '@/app/screens/Welcome'
+import WelcomeScreen from '@/app/screens/Welcome';
+import FeaturesScreen from '@/app/screens/FeaturesScreen';
+import GetStartedScreen from '@/app/screens/GetStartedScreen'
 const Stack = createStackNavigator();
 
 const PaginationDots = ({ currentIndex, navigation }) => (
@@ -24,7 +26,7 @@ const PaginationDots = ({ currentIndex, navigation }) => (
 
 
 
-const FeaturesScreen = ({ navigation }) => (
+/* const FeaturesScreen = ({ navigation }) => (
   <GestureRecognizer
     onSwipeLeft={() => navigation.navigate('GetStarted')}
     onSwipeRight={() => navigation.navigate('Welcome')}
@@ -35,10 +37,10 @@ const FeaturesScreen = ({ navigation }) => (
     <PaginationDots currentIndex={1} navigation={navigation} />
     <Button title="Next" onPress={() => navigation.navigate('GetStarted')} />
   </GestureRecognizer>
-);
+); */
 
-const GetStartedScreen = ({ navigation }) => (
-  <GestureRecognizer
+/*const GetStartedScreen = ({ navigation }) => (
+   <GestureRecognizer
     onSwipeRight={() => navigation.navigate('Features')}
     style={styles.container}
   >
@@ -47,7 +49,7 @@ const GetStartedScreen = ({ navigation }) => (
     <PaginationDots currentIndex={2} navigation={navigation} />
     <Button title="Start" onPress={() => alert('Navigating to Home Screen!')} />
   </GestureRecognizer>
-);
+); */
 
 const index = () => (
   <Stack.Navigator screenOptions={{ headerShown: false }}>

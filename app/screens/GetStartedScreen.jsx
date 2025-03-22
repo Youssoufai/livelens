@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import { useNavigation } from '@react-navigation/native';
 
-const WelcomeScreen = () => {
+const GetStartedScreen = () => {
     const navigation = useNavigation();
 
     return (
@@ -13,17 +13,16 @@ const WelcomeScreen = () => {
         >
             {/* Background Image */}
             <Image
-                source={require('@/assets/images/Map.png')}
+                source={require('@/assets/images/people.png')}
                 style={styles.image}
                 resizeMode="cover"
             />
 
             {/* Content */}
             <View style={styles.contentContainer}>
-                <Text style={styles.title}>Get live updates from anywhere in the world</Text>
+                <Text style={styles.title}>Real people, real moments</Text>
                 <Text style={styles.description}>
-                    Need a real-time look at a place? Just drop a request, and a nearby Spotter
-                    will send live photos or videos straight to you.
+                    You're in control—no real names, no personal details shared. Every request and response stays anonymous.
                 </Text>
 
                 {/* Pagination Dots */}
@@ -36,9 +35,9 @@ const WelcomeScreen = () => {
                 {/* Next Button */}
                 <TouchableOpacity
                     style={styles.nextButton}
-                    onPress={() => navigation.navigate('Features')}
+                    onPress={() => navigation.navigate('Login')}
                 >
-                    <Text style={styles.buttonText}>Next</Text>
+                    <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
             </View>
         </GestureRecognizer>
@@ -97,9 +96,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 30,
         borderRadius: 25,
         marginTop: 20,
-        display: 'flex',
-        justifyContent: 'flex-end',
-        alignSelf: "flex-end"
+        width: '100%',
+        alignItems: 'center', // Center content horizontally
+        justifyContent: 'center', // Center content vertically
+        display: 'flex', // Ensure flexbox behavior
     },
     buttonText: {
         color: '#fff',
@@ -108,4 +108,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default WelcomeScreen;
+export default GetStartedScreen;
