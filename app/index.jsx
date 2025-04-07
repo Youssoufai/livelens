@@ -5,7 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import WelcomeScreen from '@/app/screens/Welcome';
 import FeaturesScreen from '@/app/screens/FeaturesScreen';
-import GetStartedScreen from '@/app/screens/GetStartedScreen'
+import GetStartedScreen from '@/app/screens/GetStartedScreen';
+import PhoneNumber from '@/app/screens/PhoneNumber';
+import Verification from '@/app/screens/Verification';
+import AlmostThere from '@/app/screens/AlmostThere';
+import LastScreen from '@/app/screens/LastScreen';
+import Notifications from '@/app/screens/Notifications';
 const Stack = createStackNavigator();
 
 const PaginationDots = ({ currentIndex, navigation }) => (
@@ -56,6 +61,11 @@ const index = () => (
     <Stack.Screen name="Welcome" component={WelcomeScreen} />
     <Stack.Screen name="Features" component={FeaturesScreen} />
     <Stack.Screen name="GetStarted" component={GetStartedScreen} />
+    <Stack.Screen name="PhoneNumber" component={PhoneNumber} />
+    <Stack.Screen name="Verification" component={Verification} />
+    <Stack.Screen name="AlmostThere" component={AlmostThere} />
+    <Stack.Screen name="LastScreen" component={LastScreen} />
+    <Stack.Screen name="Notifications" component={Notifications} />
   </Stack.Navigator>
 );
 
