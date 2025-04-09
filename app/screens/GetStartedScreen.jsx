@@ -1,10 +1,11 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet, Modal, Button } from 'react-native';
 import GestureRecognizer from 'react-native-swipe-gestures';
 import { useNavigation } from '@react-navigation/native';
-
+import StyledModal from '@/app/screens/Modal';
 const GetStartedScreen = () => {
     const navigation = useNavigation();
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     return (
         <GestureRecognizer
@@ -32,14 +33,24 @@ const GetStartedScreen = () => {
                     <View style={styles.dot} />
                 </View>
 
-                {/* Next Button */}
+                {/* Get Started Button */}
                 <TouchableOpacity
                     style={styles.nextButton}
-                    onPress={() => navigation.navigate('PhoneNumber')}
+                    onPress={() => setIsModalVisible(true)}
                 >
                     <Text style={styles.buttonText}>Get Started</Text>
                 </TouchableOpacity>
             </View>
+
+            {/* Modal */}
+            <StyledModal
+                visible={isModalVisible}
+                onClose={() => setIsModalVisible(false)}
+                onCreateAccount={() => {
+                    setIsModalVisible(false);
+                    navigation.navigate('PhoneNumber');
+                }}
+            />
         </GestureRecognizer>
     );
 };
@@ -97,14 +108,27 @@ const styles = StyleSheet.create({
         borderRadius: 25,
         marginTop: 20,
         width: '100%',
-        alignItems: 'center', // Center content horizontally
-        justifyContent: 'center', // Center content vertically
-        display: 'flex', // Ensure flexbox behavior
+        alignItems: 'center',
+        justifyContent: 'center',
+        display: 'flex',
     },
     buttonText: {
         color: '#fff',
         fontWeight: 'bold',
         fontSize: 16,
+    },
+    modalContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20,
+        backgroundColor: '#fff',
+    },
+    modalText: {
+        fontSize: 22,
+        marginBottom: 20,
+        textAlign: 'center',
+        color: '#333',
     },
 });
 
